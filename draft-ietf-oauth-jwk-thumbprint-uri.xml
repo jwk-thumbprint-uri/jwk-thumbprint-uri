@@ -13,7 +13,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc category="std" docName="draft-ietf-oauth-jwk-thumbprint-uri-00"
+<rfc category="std" docName="draft-ietf-oauth-jwk-thumbprint-uri-01"
      ipr="trust200902">
   <front>
     <title abbrev="JWK Thumbprint URI">JWK Thumbprint URI</title>
@@ -33,7 +33,7 @@
       </address>
     </author>
 
-    <date day="28" month="January" year="2022"/>
+    <date day="11" month="February" year="2022"/>
 
     <area>Security</area>
     <workgroup>OAuth Working Group</workgroup>
@@ -129,6 +129,32 @@
         The security considerations of <xref target="RFC7638"/>
 	also apply when using this specification.
       </t>
+
+      <section anchor="MultiplePublicKeysPerPrivateKey" title="Multiple Public Keys per Private Key">
+	<t>
+	  There are cryptographic algorithms for which multiple public keys correspond to the same private key.
+	  This is described in the security considerations of <xref target="RFC7748"/> as follows:
+	</t>
+	<t>
+	  <list style="empty">
+	    <t>
+	      Designers using these curves should be aware that for each public
+	      key, there are several publicly computable public keys that are
+	      equivalent to it, i.e., they produce the same shared secrets.  Thus
+	      using a public key as an identifier and knowledge of a shared secret
+	      as proof of ownership (without including the public keys in the key
+	      derivation) might lead to subtle vulnerabilities.
+	    </t>
+	  </list>
+	</t>
+	<t>
+	  This applies to JWK Thumbprint URIs as identifiers equally as to public keys as identifiers.
+	  A recommended way to ensure that the JWK Thumbprint URI corresponds to the actual
+	  public key used is to sign a message containing the correct public key with the private key.
+	  This signed message could also contain the JWK Thumbprint URI
+	  (although, by definition, it could also be computed directly from the public key).
+	</t>
+      </section>
     </section>
 
     <section anchor="IANA" title="IANA Considerations">
@@ -181,9 +207,10 @@
     </references>
 
     <references title="Informative References">
+      <?rfc include='http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.6755.xml' ?>
       <?rfc include='http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7517.xml' ?>
       <?rfc include='http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7519.xml' ?>
-      <?rfc include='http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.6755.xml' ?>
+      <?rfc include='http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7748.xml' ?>
 
       <reference anchor="SIOPv2" target="https://openid.net/specs/openid-connect-self-issued-v2-1_0.html">
         <front>
@@ -229,8 +256,9 @@
       <t>       
         The following individuals also contributed to this specification:
 	John Bradley
+        Adam Lemmon,
 	and
-        Adam Lemmon.
+	Neil Madden.
       </t>
     </section>
 
@@ -238,6 +266,15 @@
       <?rfc subcompact="yes"?>
       <t>
 	[[ to be removed by the RFC Editor before publication as an RFC ]]
+      </t>
+
+      <t>
+        -01
+        <list style='symbols'>
+          <t>
+            Added security considerations about multiple public keys coresponding to the same private key.
+	  </t>
+        </list>
       </t>
 
       <t>
