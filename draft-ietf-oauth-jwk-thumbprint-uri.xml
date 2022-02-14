@@ -102,7 +102,8 @@
 	</list>
       </t>
       <t>
-	The prefix is followed by a hash algorithm identifier and a JWK Thumbprint value, 
+	To make it explicit in a URI which hash algorithm is used, 
+  the prefix is followed by a hash algorithm identifier and a JWK Thumbprint value, 
   each separated by a colon character to form a URI representing a JWK Thumbprint.
       </t>
     </section>
@@ -298,6 +299,9 @@
         <list style='symbols'>
           <t>
             Added security considerations about multiple public keys coresponding to the same private key.
+            Added hash algorithm identifier after the JWK thumbprint URI prefix to make it explicit in a URI which hash algorithm is used.
+            Added reference to a registry for hash algorithm identifiers.
+            Added SHA-256 as a mandatory to implement hash algorithm to promote interoperability.
 	  </t>
         </list>
       </t>
