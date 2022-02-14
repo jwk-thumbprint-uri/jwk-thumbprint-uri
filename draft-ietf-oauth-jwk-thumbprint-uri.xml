@@ -33,7 +33,7 @@
       </address>
     </author>
 
-    <date day="11" month="February" year="2022"/>
+    <date day="14" month="February" year="2022"/>
 
     <area>Security</area>
     <workgroup>OAuth Working Group</workgroup>
@@ -148,7 +148,7 @@
 	  </list>
 	</t>
 	<t>
-	  This applies to JWK Thumbprint URIs as identifiers equally as to public keys as identifiers.
+	  This consideration for public keys as identifiers equally applies to JWK Thumbprint URIs used as identifiers.
 	  A recommended way to ensure that the JWK Thumbprint URI corresponds to the actual
 	  public key used is to sign a message containing the correct public key with the private key.
 	  This signed message could also contain the JWK Thumbprint URI
