@@ -51,8 +51,8 @@
 
     <abstract>
       <t>
-	This specification registers a kind of URI that represents
-	a JSON Web Key (JWK) Thumbprint value.
+	This specification registers a kind of URI that represents 
+  a JSON Web Key (JWK) Thumbprint value.
 	JWK Thumbprints are defined in RFC 7638.
 	This enables JWK Thumbprints to be used,
 	for instance, as key identifiers in contexts requiring URIs.
@@ -103,19 +103,23 @@
       </t>
       <t>
 	The prefix is followed by a hash algorithm identifier and a JWK Thumbprint value, 
-  separated by the colon to form a URI representing a JWK Thumbprint.
+  each separated by a colon character to form a URI representing a JWK Thumbprint.
       </t>
+    </section>
 
       <section anchor="HashAlgorithms" title="Hash Algorithms Identifier">
   <t>
-  Hash algorithm identifier used in JWK Thumbprint URIs are strings 
+  Hash algorithm identifiers used in JWK Thumbprint URIs are strings 
   registered in the IANA "Named Information Hash Algorithm Registry" <xref target="IANA.Hash.Algorithms"/>.
   </t>
+    </section>
 
   <section anchor="MTI" title="Mandatory to Implement Hash Algorithm">
 	<t>
-	  Mandatory to implement Hash Algorithm is SHA-256.
+	  To promote interoperability among implementations,
+    mandatory to implement hash algorithm is SHA-256.
 	</t>
+    </section>
 
       <section anchor="Example" title="Example JWK Thumbprint URI">
 	<t>
