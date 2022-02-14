@@ -51,8 +51,8 @@
 
     <abstract>
       <t>
-	This specification registers a kind of URI that represents
-	a JSON Web Key (JWK) Thumbprint value.
+	This specification registers a kind of URI that represents 
+  a JSON Web Key (JWK) Thumbprint value.
 	JWK Thumbprints are defined in RFC 7638.
 	This enables JWK Thumbprints to be used,
 	for instance, as key identifiers in contexts requiring URIs.
@@ -102,9 +102,25 @@
 	</list>
       </t>
       <t>
-	The prefix is followed by a colon and a JWK Thumbprint value to form
-	a URI representing a JWK Thumbprint.
+	To make it explicit in a URI which hash algorithm is used, 
+  the prefix is followed by a hash algorithm identifier and a JWK Thumbprint value, 
+  each separated by a colon character to form a URI representing a JWK Thumbprint.
       </t>
+    </section>
+
+      <section anchor="HashAlgorithms" title="Hash Algorithms Identifier">
+  <t>
+  Hash algorithm identifiers used in JWK Thumbprint URIs are strings 
+  registered in the IANA "Named Information Hash Algorithm Registry" <xref target="IANA.Hash.Algorithms"/>.
+  </t>
+    </section>
+
+  <section anchor="MTI" title="Mandatory to Implement Hash Algorithm">
+	<t>
+	  To promote interoperability among implementations,
+    mandatory to implement hash algorithm is SHA-256.
+	</t>
+    </section>
 
       <section anchor="Example" title="Example JWK Thumbprint URI">
 	<t>
@@ -115,14 +131,13 @@
 ]]></artwork></figure>
 
 	<t>
-	  A complete JWK Thumbprint URI using the above JWK Thumbprint is:
+	  A complete JWK Thumbprint URI using the above JWK Thumbprint and SHA-256 hash algorithm is:
 	</t>
 	<figure><artwork><![CDATA[
-  urn:ietf:params:oauth:jwk-thumbprint:NzbLsXh8uDCcd-6MNwXF4W_7noWXFZAfHkxZsRGC9Xs
+  urn:ietf:params:oauth:jwk-thumbprint:sha-256:NzbLsXh8uDCcd-6MNwXF4W_7noWXFZAfHkxZsRGC9Xs
 ]]></artwork></figure>
       </section>
 
-    </section>
 
     <section anchor="Security" title="Security Considerations">
       <t>
@@ -212,6 +227,16 @@
       <?rfc include='http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7519.xml' ?>
       <?rfc include='http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7748.xml' ?>
 
+      <reference anchor="IANA.Hash.Algorithms" target="https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg">
+        <front>
+          <title>Named Information Hash Algorithm Registry</title>
+          <author>
+           <organization>IANA</organization>
+          </author>
+          <date/>
+        </front>
+      </reference>
+
       <reference anchor="SIOPv2" target="https://openid.net/specs/openid-connect-self-issued-v2-1_0.html">
         <front>
           <title>Self-Issued OpenID Provider v2</title>
@@ -273,6 +298,9 @@
         <list style='symbols'>
           <t>
             Added security considerations about multiple public keys coresponding to the same private key.
+            Added hash algorithm identifier after the JWK thumbprint URI prefix to make it explicit in a URI which hash algorithm is used.
+            Added reference to a registry for hash algorithm identifiers.
+            Added SHA-256 as a mandatory to implement hash algorithm to promote interoperability.
 	  </t>
         </list>
       </t>
