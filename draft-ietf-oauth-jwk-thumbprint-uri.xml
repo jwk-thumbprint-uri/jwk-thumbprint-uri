@@ -51,7 +51,7 @@
 
     <abstract>
       <t>
-	This specification registers a kind of URI that represents 
+	This specification registers a kind of URI that represents
   a JSON Web Key (JWK) Thumbprint value.
 	JWK Thumbprints are defined in RFC 7638.
 	This enables JWK Thumbprints to be used,
@@ -102,15 +102,15 @@
 	</list>
       </t>
       <t>
-	To make it explicit in a URI which hash algorithm is used, 
-  the prefix is followed by a hash algorithm identifier and a JWK Thumbprint value, 
+	To make it explicit in a URI which hash algorithm is used,
+  the prefix is followed by a hash algorithm identifier and a JWK Thumbprint value,
   each separated by a colon character to form a URI representing a JWK Thumbprint.
       </t>
     </section>
 
       <section anchor="HashAlgorithms" title="Hash Algorithms Identifier">
   <t>
-  Hash algorithm identifiers used in JWK Thumbprint URIs are strings 
+  Hash algorithm identifiers used in JWK Thumbprint URIs are strings
   registered in the IANA "Named Information Hash Algorithm Registry" <xref target="IANA.Hash.Algorithms"/>.
   </t>
     </section>
@@ -118,7 +118,7 @@
   <section anchor="MTI" title="Mandatory to Implement Hash Algorithm">
 	<t>
 	  To promote interoperability among implementations,
-    mandatory to implement hash algorithm is SHA-256.
+	  the SHA-256 hash algorithm is mandatory to implement.
 	</t>
     </section>
 
@@ -277,13 +277,17 @@
 	OpenID Connect Working Group of the OpenID Foundation.
 	Specifically, it is being used a key identifier in the
 	<xref target="SIOPv2"/> specification.
-      </t>    
-      <t>       
+      </t>
+      <t>
         The following individuals also contributed to this specification:
-	John Bradley
+	John Bradley,
+	Brian Campbell,
+	Vladimir Dzhuvinov,
         Adam Lemmon,
+	Neil Madden,
+	Aaron Parecki,
 	and
-	Neil Madden.
+	David Waite.
       </t>
     </section>
 
@@ -314,7 +318,7 @@
         </list>
       </t>
       <?rfc subcompact="no"?>
-    </section>     
+    </section>
 
   </back>
 </rfc>
