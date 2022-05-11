@@ -13,7 +13,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc category="std" docName="draft-ietf-oauth-jwk-thumbprint-uri-01"
+<rfc category="std" docName="draft-ietf-oauth-jwk-thumbprint-uri-02"
      ipr="trust200902">
   <front>
     <title abbrev="JWK Thumbprint URI">JWK Thumbprint URI</title>
@@ -33,7 +33,7 @@
       </address>
     </author>
 
-    <date day="14" month="February" year="2022"/>
+    <date day="11" month="May" year="2022"/>
 
     <area>Security</area>
     <workgroup>OAuth Working Group</workgroup>
@@ -108,11 +108,13 @@
       </t>
     </section>
 
-      <section anchor="HashAlgorithms" title="Hash Algorithms Identifier">
-  <t>
-  Hash algorithm identifiers used in JWK Thumbprint URIs are strings
-  registered in the IANA "Named Information Hash Algorithm Registry" <xref target="IANA.Hash.Algorithms"/>.
-  </t>
+    <section anchor="HashAlgorithms" title="Hash Algorithms Identifier">
+      <t>
+	Hash algorithm identifiers used in JWK Thumbprint URIs MUST be values from the "Hash Name String" column
+	in the IANA "Named Information Hash Algorithm" registry <xref target="IANA.Hash.Algorithms"/>.
+	JWK Thumbprint URIs with hash algorithm identifiers not found in this registry are considered invalid
+	and applications using these thumbprints will need appropriate error handling mechanisms.
+      </t>
     </section>
 
   <section anchor="MTI" title="Mandatory to Implement Hash Algorithm">
@@ -279,13 +281,19 @@
 	<xref target="SIOPv2"/> specification.
       </t>
       <t>
-        The following individuals also contributed to this specification:
+        The following individuals also contributed to the creation of this specification:
 	John Bradley,
+	Scott Bradner,
 	Brian Campbell,
+	Roman Danyliw,
 	Vladimir Dzhuvinov,
         Adam Lemmon,
 	Neil Madden,
+	James Manger,
 	Aaron Parecki,
+	Gonzalo Salgueiro,
+	Rifaat Shekh-Yusef,
+	Robert Sparks,
 	and
 	David Waite.
       </t>
@@ -298,12 +306,27 @@
       </t>
 
       <t>
+        -02
+        <list style='symbols'>
+          <t>
+            Addressed IETF last call comments by clarifying the requirement to use registered hash algorithm identifiers.
+	  </t>
+        </list>
+      </t>
+
+      <t>
         -01
         <list style='symbols'>
           <t>
             Added security considerations about multiple public keys coresponding to the same private key.
+	  </t>
+	  <t>
             Added hash algorithm identifier after the JWK thumbprint URI prefix to make it explicit in a URI which hash algorithm is used.
+	  </t>
+	  <t>
             Added reference to a registry for hash algorithm identifiers.
+	  </t>
+	  <t>
             Added SHA-256 as a mandatory to implement hash algorithm to promote interoperability.
 	  </t>
         </list>
