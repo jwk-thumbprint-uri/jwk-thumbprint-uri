@@ -33,7 +33,7 @@
       </address>
     </author>
 
-    <date day="11" month="May" year="2022"/>
+    <date day="16" month="May" year="2022"/>
 
     <area>Security</area>
     <workgroup>OAuth Working Group</workgroup>
@@ -113,7 +113,7 @@
 	Hash algorithm identifiers used in JWK Thumbprint URIs MUST be values from the "Hash Name String" column
 	in the IANA "Named Information Hash Algorithm" registry <xref target="IANA.Hash.Algorithms"/>.
 	JWK Thumbprint URIs with hash algorithm identifiers not found in this registry are considered invalid
-	and applications using these thumbprints will need appropriate error handling mechanisms.
+	and applications will need to detect and handle this error, should it occur.
       </t>
     </section>
 
