@@ -13,7 +13,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc category="std" docName="draft-ietf-oauth-jwk-thumbprint-uri-02"
+<rfc category="std" docName="draft-ietf-oauth-jwk-thumbprint-uri-03"
      ipr="trust200902">
   <front>
     <title abbrev="JWK Thumbprint URI">JWK Thumbprint URI</title>
@@ -33,7 +33,7 @@
       </address>
     </author>
 
-    <date day="16" month="May" year="2022"/>
+    <date day="1" month="Jun" year="2022"/>
 
     <area>Security</area>
     <workgroup>OAuth Working Group</workgroup>
@@ -112,7 +112,7 @@
       <t>
 	Hash algorithm identifiers used in JWK Thumbprint URIs MUST be values from the "Hash Name String" column
 	in the IANA "Named Information Hash Algorithm" registry <xref target="IANA.Hash.Algorithms"/>.
-	JWK Thumbprint URIs with hash algorithm identifiers not found in this registry are considered invalid
+	JWK Thumbprint URIs with hash algorithm identifiers not found in this registry are not considered valid
 	and applications will need to detect and handle this error, should it occur.
       </t>
     </section>
@@ -287,15 +287,20 @@
 	Brian Campbell,
 	Roman Danyliw,
 	Vladimir Dzhuvinov,
+	Lars Eggert,
+	Warren Kumari,
         Adam Lemmon,
 	Neil Madden,
 	James Manger,
+	Francesca Palombini,
 	Aaron Parecki,
 	Gonzalo Salgueiro,
 	Rifaat Shekh-Yusef,
 	Robert Sparks,
+	David Waite,
+	Robert Wilton,
 	and
-	David Waite.
+	Paul Wouters.
       </t>
     </section>
 
@@ -303,6 +308,15 @@
       <?rfc subcompact="yes"?>
       <t>
 	[[ to be removed by the RFC Editor before publication as an RFC ]]
+      </t>
+
+      <t>
+        -03
+        <list style='symbols'>
+          <t>
+            Addressed IESG comment by Lars Eggert on the use of inclusive language.
+	  </t>
+        </list>
       </t>
 
       <t>
